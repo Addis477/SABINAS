@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sabina's Restaurant & Cafe - Authentic Ethiopian cuisine, fresh juices, shakes, burgers, and wraps. Order now!">
+    <meta name="keywords" content="Sabinas, Ethiopian food, tibs, shiro, juices, burgers, wraps, Addis Ababa">
+    <meta name="author" content="Sabina's Restaurant & Cafe">
+    <meta property="og:title" content="Sabina's | eSmiles 🍽️">
+    <meta property="og:description" content="Authentic Ethiopian cuisine, fresh juices, shakes & more. Taste the smiles!">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?w=1200">
+    <meta property="og:type" content="website">
+    <title>Sabina's | eSmiles 🍽️</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red: #DC2626;
+            --red-dark: #B91C1C;
+            --red-light: #FEE2E2;
+            --yellow: #FBBF24;
+            --yellow-dark: #F59E0B;
+            --yellow-light: #FEF3C7;
+            --dark: #1A1A1A;
+            --dark-light: #2D2D2D;
+            --white: #FFFFFF;
+            --cream: #FFFBF5;
+            --gray: #6B7280;
+            --gray-light: #F3F4F6;
+            --green: #22C55E;
+            --radius-sm: 8px;
+            --radius: 16px;
+            --radius-lg: 24px;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.15);
+            --shadow-xl: 0 20px 60px rgba(0,0,0,0.2);
+            --transition: 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0D0D0D;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* ============ TOP BAR ============ */
+        .topbar {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 10;
+        }
+        .topbar i { color: var(--red); margin: 0 6px; }
+        .topbar span { color: var(--red); }
+
+        /* ============ HEADER ============ */
+        .header {
+            background: rgba(13,13,13,0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 3px solid var(--red);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+        }
+        .header__inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo__icon {
+            width: 56px;
+            height: 56px;
+            background: var(--red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            box-shadow: 0 4px 20px rgba(220,38,38,0.5);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%,100% { box-shadow: 0 4px 20px rgba(220,38,38,0.5); }
+            50% { box-shadow: 0 4px 35px rgba(220,38,38,0.8); }
+        }
+        .logo__text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
+            font-weight: 900;
+            color: white;
+            letter-spacing: -0.5px;
+        }
+        .logo__text span { color: var(--red); }
+        .logo__sub {
+            font-size: 0.7rem;
+            color: #AAA;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+        .btn-order {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--red);
+            color: white;
+            padding: 12px 26px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 4px 20px rgba(220,38,38,0.4);
+        }
+        .btn-order:hover { background: var(--red-dark); transform: scale(1.05); }
+
+        /* ============ HERO ============ */
+        .hero {
+            background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.4) 100%),
+                url('https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?w=1400&q=80') center/cover no-repeat;
+            text-align: center;
+            padding: 100px 24px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(0deg, #0D0D0D 0%, transparent 100%);
+            z-index: 1;
+        }
+        .hero__content { position: relative; z-index: 2; }
+        .hero__badge {
+            display: inline-block;
+            background: var(--red);
+            color: white;
+            padding: 8px 22px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+            box-shadow: 0 4px 20px rgba(220,38,38,0.5);
+        }
+        .hero__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 8px;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+        }
+        .hero__title span { color: var(--yellow); }
+        .hero__sub {
+            color: #D1D5DB;
+            font-size: 1.2rem;
+            margin-bottom: 24px;
+        }
+        .hero__cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--yellow);
+            color: var(--dark);
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 8px 30px rgba(251,191,36,0.4);
+        }
+        .hero__cta:hover { background: var(--yellow-dark); transform: scale(1.05); }
+
+        /* ============ CONTAINER ============ */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* ============ SECTION ============ */
+        .section { padding: 70px 0; }
+        .section--dark { background: #0D0D0D; }
+        .section--light { background: #1A1A1A; }
+        .section__header { text-align: center; margin-bottom: 50px; }
+        .section__icon {
+            display: inline-block;
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        .section__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 6px;
+        }
+        .section__title span { color: var(--yellow); }
+        .section__line {
+            width: 60px;
+            height: 4px;
+            background: var(--red);
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+        .section__desc { color: #AAA; max-width: 500px; margin: 0 auto; }
+
+        /* ============ COMBO CARDS ============ */
+        .combo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+        .combo-card {
+            background: #1E1E1E;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid #2A2A2A;
+            transition: var(--transition);
+            position: relative;
+            cursor: pointer;
+        }
+        .combo-card:hover {
+            border-color: var(--red);
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+        }
+        .combo-card__image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .combo-card__body { padding: 24px; }
+        .combo-card__badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: var(--red);
+            color: white;
+            padding: 5px 16px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            z-index: 2;
+        }
+        .combo-card__badge--veg {
+            background: var(--green);
+        }
+        .combo-card__badge--new {
+            background: var(--yellow);
+            color: var(--dark);
+        }
+        .combo-card__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: white;
+        }
+        .combo-card__items {
+            list-style: none;
+            margin-bottom: 14px;
+        }
+        .combo-card__items li {
+            padding: 3px 0;
+            font-size: 0.9rem;
+            color: #AAA;
+        }
+        .combo-card__items li::before {
+            content: '✓ ';
+            color: var(--red);
+            font-weight: 700;
+        }
+        .combo-card__price {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--yellow);
+        }
+        .combo-card__price small { font-size: 0.85rem; font-weight: 400; color: #888; }
+
+        /* ============ MENU GRID ============ */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 14px;
+        }
+        .menu-item {
+            background: #1E1E1E;
+            border-radius: var(--radius);
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+            border: 1px solid #2A2A2A;
+            cursor: pointer;
+        }
+        .menu-item:hover {
+            border-color: var(--red);
+            transform: translateX(4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .menu-item__name {
+            font-weight: 600;
+            color: white;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .veg-badge {
+            background: var(--green);
+            color: white;
+            font-size: 0.65rem;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        .menu-item__price {
+            font-weight: 700;
+            color: var(--yellow);
+            font-size: 1.05rem;
+            white-space: nowrap;
+        }
+
+        /* ============ CATEGORY BANNER ============ */
+        .category-banner {
+            height: 250px;
+            border-radius: var(--radius-lg);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        .category-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+        }
+        .category-banner__title {
+            position: relative;
+            z-index: 1;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: white;
+            font-weight: 800;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        /* ============ MODAL (POPUP) ============ */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        .modal.active {
+            display: flex;
+        }
+        .modal__content {
+            background: #1E1E1E;
+            max-width: 500px;
+            width: 90%;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            animation: modalFadeIn 0.3s ease;
+            border: 1px solid var(--red);
+        }
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .modal__image {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+        .modal__body {
+            padding: 28px;
+            text-align: center;
+        }
+        .modal__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--yellow);
+            margin-bottom: 12px;
+        }
+        .modal__ingredients {
+            background: #2A2A2A;
+            padding: 16px;
+            border-radius: var(--radius);
+            margin: 16px 0;
+            text-align: left;
+        }
+        .modal__ingredients h4 {
+            color: var(--red);
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+        .modal__ingredients ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .modal__ingredients li {
+            color: #CCC;
+            padding: 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .modal__ingredients li i {
+            color: var(--yellow);
+            font-size: 0.8rem;
+        }
+        .modal__price {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--yellow);
+            margin: 16px 0;
+        }
+        .close-modal {
+            background: var(--red);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 8px;
+            width: 100%;
+        }
+        .close-modal:hover {
+            background: var(--red-dark);
+            transform: scale(1.02);
+        }
+
+        /* ============ CONTACT ============ */
+        .contact-bar {
+            background: var(--red);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .contact-bar__phone {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .contact-bar__social {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+        .contact-bar__social a {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        .contact-bar__social a:hover { background: var(--yellow); color: var(--dark); }
+
+        /* ============ FOOTER ============ */
+        .footer {
+            background: #000;
+            color: #666;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.85rem;
+        }
+        .footer__credit {
+            margin-top: 8px;
+            font-size: 0.75rem;
+            color: #555;
+        }
+        .footer__credit a {
+            color: var(--yellow);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .footer__credit a:hover {
+            color: var(--red);
+        }
+        .footer__credit i {
+            margin: 0 4px;
+            font-size: 0.7rem;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 768px) {
+            .hero__title { font-size: 2.5rem; }
+            .section__title { font-size: 1.8rem; }
+            .combo-grid { grid-template-columns: 1fr; }
+            .menu-grid { grid-template-columns: 1fr 1fr; }
+            .header__inner { flex-direction: column; text-align: center; }
+            .category-banner { height: 180px; }
+            .category-banner__title { font-size: 1.8rem; }
+        }
+        @media (max-width: 480px) {
+            .menu-grid { grid-template-columns: 1fr; }
+            .hero__title { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============ TOP BAR ============ -->
+    <div class="topbar">
+        <i class="fas fa-motorcycle"></i> Delivery: <span>beu delivery</span> & <span>Zmall App Store</span> 🛵 | <i class="fas fa-clock"></i> Open Daily: 7AM - 10PM
+    </div>
+
+    <!-- ============ HEADER ============ -->
+    <header class="header">
+        <div class="header__inner">
+            <div class="logo">
+                <div class="logo__icon">🍽️</div>
+                <div>
+                    <div class="logo__text">SABINA<span>®</span>'S</div>
+                    <div class="logo__sub">eSmiles</div>
+                </div>
+            </div>
+            <a href="tel:+251930222324" class="btn-order">
+                <i class="fas fa-phone"></i> Order Now
+            </a>
+        </div>
+    </header>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+        <div class="hero__content">
+            <div class="hero__badge">🍽️ AUTHENTIC CUISINE</div>
+            <h1 class="hero__title">Taste <span>The</span> Smiles</h1>
+            <p class="hero__sub">Ethiopian Cuisine • Fresh Juices • Burgers • Wraps</p>
+            <a href="tel:+251930222324" class="hero__cta">
+                <i class="fas fa-phone-alt"></i> +251 93 022 2324
+            </a>
+        </div>
+    </section>
+
+    <!-- ============ LUNCH MENU (Featured Combos) ============ -->
+    <section class="section section--dark">
+        <div class="container">
+            <div class="section__header">
+                <div class="section__icon">🍛</div>
+                <h2 class="section__title">Lunch <span>Menu</span></h2>
+                <p class="section__desc">Authentic Ethiopian flavors made fresh daily</p>
+                <div class="section__line"></div>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item" data-name="Beef Tibs" data-price="600" data-image="https://images.unsplash.com/photo-1604909052743-94e838986d24?w=600&q=80" data-ingredients="Beef, Onion, Tomato, Green Chili, Ethiopian Spices, Rosemary"><span class="menu-item__name">Beef Tibs</span><span class="menu-item__price">600</span></div>
+                <div class="menu-item" data-name="Chikina Tibs" data-price="680" data-image="https://images.unsplash.com/photo-1604909052743-94e838986d24?w=600&q=80" data-ingredients="Chicken, Onion, Tomato, Green Chili, Ethiopian Spices, Butter"><span class="menu-item__name">Chikina Tibs</span><span class="menu-item__price">680</span></div>
+                <div class="menu-item" data-name="Tibs Firfir" data-price="550" data-image="https://images.unsplash.com/photo-1627662056004-86d2d2b7bfa9?w=600&q=80" data-ingredients="Beef, Injera, Spiced Butter, Berbere, Onion"><span class="menu-item__name">Tibs Firfir</span><span class="menu-item__price">550</span></div>
+                <div class="menu-item" data-name="Chicken Tibs" data-price="690" data-image="https://images.unsplash.com/photo-1604909052743-94e838986d24?w=600&q=80" data-ingredients="Chicken Breast, Onion, Tomato, Green Chili, Ethiopian Spices"><span class="menu-item__name">Chicken Tibs</span><span class="menu-item__price">690</span></div>
+                <div class="menu-item" data-name="Bozena Shiro" data-price="480" data-image="https://images.unsplash.com/photo-1546069901-d5bfec2a5a5f?w=600&q=80" data-ingredients="Chickpea Powder, Ethiopian Spices, Garlic, Onion, Olive Oil"><span class="menu-item__name">Bozena Shiro</span><span class="menu-item__price">480</span></div>
+                <div class="menu-item" data-name="Shiro Beqibe" data-price="450" data-image="https://images.unsplash.com/photo-1546069901-d5bfec2a5a5f?w=600&q=80" data-ingredients="Chickpea Powder, Ethiopian Spices, Garlic, Onion"><span class="menu-item__name">Shiro Beqibe</span><span class="menu-item__price">450</span></div>
+                <div class="menu-item" data-name="Dirkosh qanta firfir" data-price="590" data-image="https://images.unsplash.com/photo-1627662056004-86d2d2b7bfa9?w=600&q=80" data-ingredients="Dried Meat, Injera, Spiced Butter, Berbere"><span class="menu-item__name">Dirkosh qanta firfir</span><span class="menu-item__price">590</span></div>
+                <div class="menu-item" data-name="Dirkosh siga firfir" data-price="570" data-image="https://images.unsplash.com/photo-1627662056004-86d2d2b7bfa9?w=600&q=80" data-ingredients="Dried Meat, Beef, Injera, Spiced Butter"><span class="menu-item__name">Dirkosh siga firfir</span><span class="menu-item__price">570</span></div>
+                <div class="menu-item" data-name="Shiro and Beef Tibs" data-price="500" data-image="https://images.unsplash.com/photo-1546069901-d5bfec2a5a5f?w=600&q=80" data-ingredients="Shiro, Beef Tibs, Injera"><span class="menu-item__name">Shiro and Beef Tibs</span><span class="menu-item__price">500</span></div>
+                <div class="menu-item" data-name="Half Vegetable Half Tibs" data-price="540" data-image="https://images.unsplash.com/photo-1546069901-d5bfec2a5a5f?w=600&q=80" data-ingredients="Vegetarian Combo, Beef Tibs, Injera"><span class="menu-item__name">Half Vegetable Half Tibs</span><span class="menu-item__price">540</span></div>
+                <div class="menu-item" data-name="Special Combo" data-price="790" data-image="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?w=600&q=80" data-ingredients="Mixed Tibs, Shiro, Vegetables, Injera"><span class="menu-item__name">Special Combo</span><span class="menu-item__price">790</span></div>
+                <div class="menu-item" data-name="Shiro" data-price="400" data-image="https://images.unsplash.com/photo-1546069901-d5bfec2a5a5f?w=600&q=80" data-ingredients="Chickpea Powder, Ethiopian Spices, Garlic, Onion"><span class="menu-item__name">Shiro <span class="veg-badge">V</span></span><span class="menu-item__price">400</span></div>
+                <div class="menu-item" data-name="Flaxseed with Injera" data-price="340" data-image="https://images.unsplash.com/photo-1586444248902-2f5b5a5c2f4b?w=600&q=80" data-ingredients="Flaxseed Powder, Injera, Ethiopian Spices"><span class="menu-item__name">Flaxseed with Injera <span class="veg-badge">V</span></span><span class="menu-item__price">340</span></div>
+                <div class="menu-item" data-name="Suf firfir" data-price="340" data-image="https://images.unsplash.com/photo-1627662056004-86d2d2b7bfa9?w=600&q=80" data-ingredients="Flaxseed, Injera, Spiced Butter"><span class="menu-item__name">Suf firfir <span class="veg-badge">V</span></span><span class="menu-item__price">340</span></div>
+                <div class="menu-item" data-name="Beyaynetu" data-price="490" data-image="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?w=600&q=80" data-ingredients="Assorted Vegetables, Shiro, Gomen, Alicha, Injera"><span class="menu-item__name">Beyaynetu <span class="veg-badge">V</span></span><span class="menu-item__price">490</span></div>
+                <div class="menu-item" data-name="Timatim Leblebl" data-price="350" data-image="https://images.unsplash.com/photo-1546069901-d5bfec2a5a5f?w=600&q=80" data-ingredients="Tomato, Onion, Green Chili, Lemon, Injera"><span class="menu-item__name">Timatim Leblebl <span class="veg-badge">V</span></span><span class="menu-item__price">350</span></div>
+                <div class="menu-item" data-name="Fasting Combo" data-price="580" data-image="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?w=600&q=80" data-ingredients="Shiro, Gomen, Timatim, Injera"><span class="menu-item__name">Fasting Combo <span class="veg-badge">V</span></span><span class="menu-item__price">580</span></div>
+                <div class="menu-item" data-name="Shiro & Timatim" data-price="420" data-image="https://images.unsplash.com/photo-1546069901-d5bfec2a5a5f?w=600&q=80" data-ingredients="Shiro, Timatim, Injera"><span class="menu-item__name">Shiro & Timatim <span class="veg-badge">V</span></span><span class="menu-item__price">420</span></div>
+                <div class="menu-item" data-name="Shiro & Suf firfir" data-price="420" data-image="https://images.unsplash.com/photo-1546069901-d5bfec2a5a5f?w=600&q=80" data-ingredients="Shiro, Suf Firfir, Injera"><span class="menu-item__name">Shiro & Suf firfir <span class="veg-badge">V</span></span><span class="menu-item__price">420</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ DRINKS ============ -->
+    <section class="section section--light">
+        <div class="container">
+            <div class="category-banner" style="background-image: url('https://images.unsplash.com/photo-1544148103-0773bf10d330?w=1200&q=80');">
+                <h3 class="category-banner__title">🥤 Drinks</h3>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item" data-name="½ Litre Water" data-price="60" data-image="https://images.unsplash.com/photo-1616118132534-381f8985f5c3?w=600&q=80" data-ingredients="Natural Spring Water"><span class="menu-item__name">½ Litre Water</span><span class="menu-item__price">60</span></div>
+                <div class="menu-item" data-name="1 Litre Water" data-price="80" data-image="https://images.unsplash.com/photo-1616118132534-381f8985f5c3?w=600&q=80" data-ingredients="Natural Spring Water"><span class="menu-item__name">1 Litre Water</span><span class="menu-item__price">80</span></div>
+                <div class="menu-item" data-name="Sparkling Water" data-price="80" data-image="https://images.unsplash.com/photo-1616118132534-381f8985f5c3?w=600&q=80" data-ingredients="Carbonated Spring Water"><span class="menu-item__name">Sparkling Water</span><span class="menu-item__price">80</span></div>
+                <div class="menu-item" data-name="Soft Drinks" data-price="80" data-image="https://images.unsplash.com/photo-1625772299848-391b6a87d7b3?w=600&q=80" data-ingredients="Coca-Cola, Sprite, Fanta, Mirinda"><span class="menu-item__name">Soft Drinks</span><span class="menu-item__price">80</span></div>
+                <div class="menu-item" data-name="Beer" data-price="120" data-image="https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=600&q=80" data-ingredients="Premium Ethiopian Beer"><span class="menu-item__name">Beer</span><span class="menu-item__price">120</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ JUICES ============ -->
+    <section class="section section--dark">
+        <div class="container">
+            <div class="category-banner" style="background-image: url('https://images.unsplash.com/photo-1613478223719-2ab802602423?w=1200&q=80');">
+                <h3 class="category-banner__title">🧃 Fresh Juices</h3>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item" data-name="Avocado Juice" data-price="250" data-image="https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=600&q=80" data-ingredients="Fresh Avocado, Milk, Honey, Vanilla"><span class="menu-item__name">Avocado Juice</span><span class="menu-item__price">250</span></div>
+                <div class="menu-item" data-name="Strawberry Juice" data-price="300" data-image="https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=600&q=80" data-ingredients="Fresh Strawberries, Mint, Lime"><span class="menu-item__name">Strawberry Juice</span><span class="menu-item__price">300</span></div>
+                <div class="menu-item" data-name="Papaya Juice" data-price="250" data-image="https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=600&q=80" data-ingredients="Fresh Papaya, Lime, Honey"><span class="menu-item__name">Papaya Juice</span><span class="menu-item__price">250</span></div>
+                <div class="menu-item" data-name="Flaxseed Juice" data-price="250" data-image="https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=600&q=80" data-ingredients="Flaxseed, Honey, Lemon, Water"><span class="menu-item__name">Flaxseed Juice</span><span class="menu-item__price">250</span></div>
+                <div class="menu-item" data-name="Special Juice" data-price="450" data-image="https://images.unsplash.com/photo-1623065422902-30a2d299e4cd?w=600&q=80" data-ingredients="Mixed Tropical Fruits, Honey, Lime"><span class="menu-item__name">Special Juice</span><span class="menu-item__price">450</span></div>
+                <div class="menu-item" data-name="Mango Juice" data-price="300" data-image="https://images.unsplash.com/photo-1623065422902-30a2d299e4cd?w=600&q=80" data-ingredients="Fresh Mango, Lime, Honey"><span class="menu-item__name">Mango Juice</span><span class="menu-item__price">300</span></div>
+                <div class="menu-item" data-name="Papaya with (something)" data-price="300" data-image="https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=600&q=80" data-ingredients="Papaya, Lime, Honey, Ginger"><span class="menu-item__name">Papaya Special</span><span class="menu-item__price">300</span></div>
+                <div class="menu-item" data-name="Pineapple Juice" data-price="400" data-image="https://images.unsplash.com/photo-1623065422902-30a2d299e4cd?w=600&q=80" data-ingredients="Fresh Pineapple, Mint"><span class="menu-item__name">Pineapple Juice</span><span class="menu-item__price">400</span></div>
+                <div class="menu-item" data-name="Watermelon Juice" data-price="300" data-image="https://images.unsplash.com/photo-1623065422902-30a2d299e4cd?w=600&q=80" data-ingredients="Fresh Watermelon, Lime, Mint"><span class="menu-item__name">Watermelon Juice</span><span class="menu-item__price">300</span></div>
+                <div class="menu-item" data-name="Beetroot juice" data-price="350" data-image="https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=600&q=80" data-ingredients="Fresh Beetroot, Apple, Ginger, Lemon"><span class="menu-item__name">Beetroot Juice</span><span class="menu-item__price">350</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SHAKES ============ -->
+    <section class="section section--light">
+        <div class="container">
+            <div class="category-banner" style="background-image: url('https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=1200&q=80');">
+                <h3 class="category-banner__title">🥤 Shakes & Smoothies</h3>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item" data-name="Detox Drink" data-price="350" data-image="https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=600&q=80" data-ingredients="Cucumber, Lemon, Ginger, Mint, Green Apple"><span class="menu-item__name">Detox Drink</span><span class="menu-item__price">350</span></div>
+                <div class="menu-item" data-name="Oredo Shake" data-price="450" data-image="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=600&q=80" data-ingredients="Oreo Cookies, Vanilla Ice Cream, Milk"><span class="menu-item__name">Oredo Shake</span><span class="menu-item__price">450</span></div>
+                <div class="menu-item" data-name="Strawberry Shake" data-price="350" data-image="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=600&q=80" data-ingredients="Fresh Strawberries, Milk, Ice Cream, Sugar"><span class="menu-item__name">Strawberry Shake</span><span class="menu-item__price">350</span></div>
+                <div class="menu-item" data-name="Vanilla Shake" data-price="350" data-image="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=600&q=80" data-ingredients="Vanilla Ice Cream, Milk, Vanilla Extract"><span class="menu-item__name">Vanilla Shake</span><span class="menu-item__price">350</span></div>
+                <div class="menu-item" data-name="Papaya Shake" data-price="300" data-image="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=600&q=80" data-ingredients="Fresh Papaya, Milk, Honey, Ice"><span class="menu-item__name">Papaya Shake</span><span class="menu-item__price">300</span></div>
+                <div class="menu-item" data-name="Mango Shake" data-price="400" data-image="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=600&q=80" data-ingredients="Fresh Mango, Milk, Honey, Ice Cream"><span class="menu-item__name">Mango Shake</span><span class="menu-item__price">400</span></div>
+                <div class="menu-item" data-name="Avocado Shake" data-price="350" data-image="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=600&q=80" data-ingredients="Fresh Avocado, Milk, Honey, Vanilla"><span class="menu-item__name">Avocado Shake</span><span class="menu-item__price">350</span></div>
+                <div class="menu-item" data-name="Breakfast Smoothie" data-price="450" data-image="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=600&q=80" data-ingredients="Milk, Peanut Butter, Banana, Strawberry"><span class="menu-item__name">Breakfast Smoothie</span><span class="menu-item__price">450</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ MOJITOS (TAKE AWAY) ============ -->
+    <section class="section section--dark">
+        <div class="container">
+            <div class="category-banner" style="background-image: url('https://images.unsplash.com/photo-1544148103-0773bf10d330?w=1200&q=80');">
+                <h3 class="category-banner__title">🍹 Cold Mojitos (Take Away)</h3>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item" data-name="Strawberry Mojito" data-price="250" data-image="https://images.unsplash.com/photo-1544148103-0773bf10d330?w=600&q=80" data-ingredients="Fresh Strawberries, Mint, Lime, Soda Water"><span class="menu-item__name">Strawberry Mojito</span><span class="menu-item__price">250</span></div>
+                <div class="menu-item" data-name="Pineapple Mojito" data-price="250" data-image="https://images.unsplash.com/photo-1544148103-0773bf10d330?w=600&q=80" data-ingredients="Pineapple, Mint, Lime, Soda Water"><span class="menu-item__name">Pineapple Mojito</span><span class="menu-item__price">250</span></div>
+                <div class="menu-item" data-name="Classic Mojito" data-price="250" data-image="https://images.unsplash.com/photo-1544148103-0773bf10d330?w=600&q=80" data-ingredients="Lime, Mint, Soda Water, Sugar"><span class="menu-item__name">Classic Mojito</span><span class="menu-item__price">250</span></div>
+                <div class="menu-item" data-name="Cinnamon Mojito" data-price="250" data-image="https://images.unsplash.com/photo-1544148103-0773bf10d330?w=600&q=80" data-ingredients="Cinnamon, Lime, Mint, Soda Water"><span class="menu-item__name">Cinnamon Mojito</span><span class="menu-item__price">250</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ BURGERS & WRAPS ============ -->
+    <section class="section section--light">
+        <div class="container">
+            <div class="category-banner" style="background-image: url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1200&q=80');">
+                <h3 class="category-banner__title">🍔 Burgers & Wraps</h3>
+            </div>
+            <div class="section__header" style="margin-bottom: 20px;">
+                <h2 class="section__title" style="font-size: 1.8rem;">Burgers</h2>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item" data-name="Cheese Burger" data-price="590" data-image="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80" data-ingredients="Beef Patty, Cheese, Lettuce, Tomato, Onion, Sauce"><span class="menu-item__name">Cheese Burger</span><span class="menu-item__price">590</span></div>
+                <div class="menu-item" data-name="Normal Burger" data-price="520" data-image="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80" data-ingredients="Beef Patty, Lettuce, Tomato, Onion, Sauce"><span class="menu-item__name">Normal Burger</span><span class="menu-item__price">520</span></div>
+                <div class="menu-item" data-name="Special Burger" data-price="650" data-image="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80" data-ingredients="Double Beef Patty, Cheese, Bacon, Lettuce, Tomato, Special Sauce"><span class="menu-item__name">Special Burger</span><span class="menu-item__price">650</span></div>
+                <div class="menu-item" data-name="Club Sandwich" data-price="590" data-image="https://images.unsplash.com/photo-1524350876685-274059332603?w=600&q=80" data-ingredients="Chicken, Bacon, Lettuce, Tomato, Mayo, Toast"><span class="menu-item__name">Club Sandwich</span><span class="menu-item__price">590</span></div>
+            </div>
+            <div class="section__header" style="margin-bottom: 20px; margin-top: 30px;">
+                <h2 class="section__title" style="font-size: 1.8rem;">Wraps</h2>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item" data-name="Tuna Wrap" data-price="550" data-image="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=600&q=80" data-ingredients="Tuna, Lettuce, Tomato, Cucumber, Sauce, Wrap Bread"><span class="menu-item__name">Tuna Wrap</span><span class="menu-item__price">550</span></div>
+                <div class="menu-item" data-name="Chicken Wrap" data-price="590" data-image="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=600&q=80" data-ingredients="Grilled Chicken, Lettuce, Tomato, Sauce, Wrap Bread"><span class="menu-item__name">Chicken Wrap</span><span class="menu-item__price">590</span></div>
+                <div class="menu-item" data-name="Vegetable Wrap" data-price="400" data-image="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=600&q=80" data-ingredients="Grilled Vegetables, Lettuce, Hummus, Wrap Bread"><span class="menu-item__name">Vegetable Wrap <span class="veg-badge">V</span></span><span class="menu-item__price">400</span></div>
+                <div class="menu-item" data-name="Avocado Wrap" data-price="420" data-image="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=600&q=80" data-ingredients="Avocado, Lettuce, Tomato, Cucumber, Sauce, Wrap Bread"><span class="menu-item__name">Avocado Wrap <span class="veg-badge">V</span></span><span class="menu-item__price">420</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ EXTRAS ============ -->
+    <section class="section section--dark">
+        <div class="container">
+            <div class="category-banner" style="background-image: url('https://images.unsplash.com/photo-1585109649139-366815a0d713?w=1200&q=80');">
+                <h3 class="category-banner__title">🍽️ Extras</h3>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item" data-name="Injera" data-price="60" data-image="https://images.unsplash.com/photo-1586444248902-2f5b5a5c2f4b?w=600&q=80" data-ingredients="Teff Flour, Water"><span class="menu-item__name">Injera</span><span class="menu-item__price">60</span></div>
+                <div class="menu-item" data-name="Cheese" data-price="50" data-image="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=600&q=80" data-ingredients="Fresh Cheese"><span class="menu-item__name">Cheese</span><span class="menu-item__price">50</span></div>
+                <div class="menu-item" data-name="Butter" data-price="70" data-image="https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=600&q=80" data-ingredients="Spiced Ethiopian Butter"><span class="menu-item__name">Butter</span><span class="menu-item__price">70</span></div>
+                <div class="menu-item" data-name="Yoghurt" data-price="50" data-image="https://images.unsplash.com/photo-1488477181946-6428a0293df2?w=600&q=80" data-ingredients="Plain Yogurt"><span class="menu-item__name">Yoghurt</span><span class="menu-item__price">50</span></div>
+                <div class="menu-item" data-name="Mayonnaise" data-price="50" data-image="https://images.unsplash.com/photo-1625772299848-391b6a87d7b3?w=600&q=80" data-ingredients="Creamy Mayonnaise"><span class="menu-item__name">Mayonnaise</span><span class="menu-item__price">50</span></div>
+                <div class="menu-item" data-name="Ketchup" data-price="50" data-image="https://images.unsplash.com/photo-1625772299848-391b6a87d7b3?w=600&q=80" data-ingredients="Tomato Ketchup"><span class="menu-item__name">Ketchup</span><span class="menu-item__price">50</span></div>
+                <div class="menu-item" data-name="Boiled Egg" data-price="60" data-image="https://images.unsplash.com/photo-1510693206979-df09806cb5f5?w=600&q=80" data-ingredients="Fresh Boiled Egg"><span class="menu-item__name">Boiled Egg</span><span class="menu-item__price">60</span></div>
+                <div class="menu-item" data-name="Bread" data-price="40" data-image="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80" data-ingredients="Fresh White Bread"><span class="menu-item__name">Bread</span><span class="menu-item__price">40</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ TAKE AWAY PACKAGING ============ -->
+    <section class="section section--light">
+        <div class="container">
+            <div class="category-banner" style="background-image: url('https://images.unsplash.com/photo-1574691250078-96e29b1f4f8e?w=1200&q=80');">
+                <h3 class="category-banner__title">📦 Take Away Packaging</h3>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item" data-name="Takeaway Box" data-price="70" data-image="https://images.unsplash.com/photo-1574691250078-96e29b1f4f8e?w=600&q=80" data-ingredients="Eco-friendly Takeaway Container"><span class="menu-item__name">Takeaway Box</span><span class="menu-item__price">70</span></div>
+                <div class="menu-item" data-name="Foil" data-price="50" data-image="https://images.unsplash.com/photo-1574691250078-96e29b1f4f8e?w=600&q=80" data-ingredients="Aluminum Foil"><span class="menu-item__name">Foil</span><span class="menu-item__price">50</span></div>
+                <div class="menu-item" data-name="Juice Cup" data-price="50" data-image="https://images.unsplash.com/photo-1574691250078-96e29b1f4f8e?w=600&q=80" data-ingredients="Plastic Juice Cup with Lid"><span class="menu-item__name">Juice Cup</span><span class="menu-item__price">50</span></div>
+                <div class="menu-item" data-name="Macchiato Cup" data-price="50" data-image="https://images.unsplash.com/photo-1574691250078-96e29b1f4f8e?w=600&q=80" data-ingredients="Coffee Cup with Lid"><span class="menu-item__name">Macchiato Cup</span><span class="menu-item__price">50</span></div>
+                <div class="menu-item" data-name="Tea Cup" data-price="50" data-image="https://images.unsplash.com/photo-1574691250078-96e29b1f4f8e?w=600&q=80" data-ingredients="Tea Cup with Lid"><span class="menu-item__name">Tea Cup</span><span class="menu-item__price">50</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ MODAL (POPUP) ============ -->
+    <div id="itemModal" class="modal">
+        <div class="modal__content">
+            <img id="modalImage" class="modal__image" src="" alt="">
+            <div class="modal__body">
+                <h3 id="modalTitle" class="modal__title"></h3>
+                <div class="modal__ingredients">
+                    <h4><i class="fas fa-leaf"></i> Ingredients</h4>
+                    <ul id="modalIngredients"></ul>
+                </div>
+                <div class="modal__price" id="modalPrice"></div>
+                <button class="close-modal" id="closeModalBtn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ CONTACT ============ -->
+    <div class="contact-bar">
+        <div class="container">
+            <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:6px;">Order Now!</h3>
+            <div class="contact-bar__phone">📞 +251 93 022 2324</div>
+            <p style="margin-top:6px; opacity:0.9;">For comments and suggestions, contact us</p>
+            <div class="contact-bar__social">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Sabina's Restaurant & Cafe — eSmiles | Authentic Ethiopian Cuisine | Addis Ababa, Ethiopia</p>
+            <p class="footer__credit">
+                Designed & Developed by 
+                <a href="https://addispower.pages.dev" target="_blank" rel="noopener">
+                    <i class="fas fa-bolt"></i> AddisPower <i class="fas fa-bolt"></i>
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // ============ MODAL FUNCTIONALITY ============
+        const modal = document.getElementById('itemModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalIngredients = document.getElementById('modalIngredients');
+        const modalPrice = document.getElementById('modalPrice');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        function showModal(name, price, imageSrc, ingredients) {
+            modalTitle.textContent = name;
+            modalImage.src = imageSrc;
+            modalPrice.textContent = price === '--' ? 'Price unavailable' : `ETB ${price}`;
+            
+            const ingredientsList = ingredients.split(',').map(ing => ing.trim());
+            modalIngredients.innerHTML = '';
+            ingredientsList.forEach(ing => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="fas fa-check-circle"></i> ${ing}`;
+                modalIngredients.appendChild(li);
+            });
+            
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        document.querySelectorAll('.combo-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                showModal(this.dataset.name, this.dataset.price, this.dataset.image, this.dataset.ingredients);
+            });
+        });
+
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                showModal(this.dataset.name, this.dataset.price, this.dataset.image, this.dataset.ingredients);
+            });
+        });
+
+        closeModalBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) closeModal();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+        });
+    </script>
+</body>
+</html>
